@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { prisma } from "./db";
-import ToDoItem from "./components/ToDoItem";
-import {useState} from 'react'
 import ToDoList from "./components/ToDoList";
 
 async function getTodos() {
@@ -43,11 +41,6 @@ export default async function Home() {
           New
         </Link>
       </header>
-      {/* <ul className="px-4">
-        {todos.map((todo) => (
-          <ToDoItem key={todo.id} {...todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
-        ))}
-      </ul> */}
       <ToDoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
     </>
   );

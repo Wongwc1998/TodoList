@@ -13,9 +13,6 @@ type TodoItemProps = {
   deleteTodo: (id: string) => void;
 };
 
-function changeTodos() {
-  setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
-}
 
 export default function ToDoList({
   todos,
