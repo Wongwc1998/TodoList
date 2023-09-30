@@ -6,31 +6,19 @@ import { DataAccessLayer } from "./dataAccessLayer";
 // import { prismaDal } from "./dataAccessLayer";
 // OR
 import { jsonServerDal } from "./jsonServerDal";
+const dal: DataAccessLayer = jsonServerDal;
+  async function toggleTodo(id: string, completed: boolean) {
+    "use server"
+    await dal.toggleTodo(id, completed);
+  }
 
-async function toggleTodo(id: string, completed: boolean) {
-  "use server"
-  await prisma.todo.update({
-    where: {
-      id: id,
-    },
-    data: {
-      completed: completed,
-    },
-  });
-}
-
-async function deleteTodo(id: string) {
-  "use server"
-  await prisma.todo.delete({
-    where: {
-      id: id,
-    },
-  });
-}
+  async function deleteTodo(id: string) {
+    "use server"
+    await dal.deleteTodo(id);
+  }
 
 export default async function Home() {
   // const dal: DataAccessLayer = prismaDal; // or jsonServerDal
-  const dal: DataAccessLayer = jsonServerDal;
   const todos = await dal.getTodos();
   return (
     <>
