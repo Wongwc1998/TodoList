@@ -4,7 +4,7 @@ import { DataAccessLayer } from "./DalInterface";
 // import { prismaDal } from "./prismaDal";
 // const dal = prismaDal;
 import { jsonServerDal } from "./jsonServerDal";
-const dal = jsonServerDal;
+const dal: DataAccessLayer = jsonServerDal;
 
 async function toggleTodo(id: string, completed: boolean) {
   "use server";
