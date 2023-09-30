@@ -3,9 +3,9 @@ import { prisma } from "./db";
 import ToDoList from "./components/ToDoList";
 import { DataAccessLayer } from "./dataAccessLayer";
 // Import the DAL you want to use
-import { prismaDal } from "./dataAccessLayer";
+// import { prismaDal } from "./dataAccessLayer";
 // OR
-// import { jsonServerDal } from "./jsonServerDal";
+import { jsonServerDal } from "./jsonServerDal";
 
 async function toggleTodo(id: string, completed: boolean) {
   "use server"
@@ -29,7 +29,8 @@ async function deleteTodo(id: string) {
 }
 
 export default async function Home() {
-  const dal: DataAccessLayer = prismaDal; // or jsonServerDal
+  // const dal: DataAccessLayer = prismaDal; // or jsonServerDal
+  const dal: DataAccessLayer = jsonServerDal;
   const todos = await dal.getTodos();
   return (
     <>

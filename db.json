@@ -1,0 +1,18 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "title": "Learn Prisma",
+      "completed": false,
+      "createdAt": "2023-09-30T00:00:00Z",
+      "updatedAt": "2023-09-30T00:00:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Learn Next.js",
+      "completed": false,
+      "createdAt": "2023-09-30T00:00:00Z",
+      "updatedAt": "2023-09-30T00:00:00Z"
+    }
+  ]
+}
