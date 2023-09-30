@@ -1,11 +1,10 @@
 import Link from "next/link";
 import ToDoList from "./components/ToDoList";
 import { DataAccessLayer } from "./dataAccessLayer";
-import { prismaDal } from "./dataAccessLayer";
-const dal = prismaDal;
-// import { jsonServerDal } from "../jsonServerDal";
-// const dal = jsonServerDal;
-
+// import { prismaDal } from "./dataAccessLayer";
+// const dal = prismaDal;
+import { jsonServerDal } from "./jsonServerDal";
+const dal = jsonServerDal;
 
 async function toggleTodo(id: string, completed: boolean) {
   "use server";

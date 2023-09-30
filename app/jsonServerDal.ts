@@ -1,5 +1,3 @@
-// jsonServerDal.ts
-
 import axios from "axios";
 import { DataAccessLayer, Todo } from "./dataAccessLayer";
 
