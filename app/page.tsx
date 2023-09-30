@@ -1,24 +1,23 @@
 import Link from "next/link";
-import { prisma } from "./db";
 import ToDoList from "./components/ToDoList";
 import { DataAccessLayer } from "./dataAccessLayer";
-// Import the DAL you want to use
-// import { prismaDal } from "./dataAccessLayer";
-// OR
-import { jsonServerDal } from "./jsonServerDal";
-const dal: DataAccessLayer = jsonServerDal;
-  async function toggleTodo(id: string, completed: boolean) {
-    "use server"
-    await dal.toggleTodo(id, completed);
-  }
+import { prismaDal } from "./dataAccessLayer";
+const dal = prismaDal;
+// import { jsonServerDal } from "../jsonServerDal";
+// const dal = jsonServerDal;
 
-  async function deleteTodo(id: string) {
-    "use server"
-    await dal.deleteTodo(id);
-  }
+
+async function toggleTodo(id: string, completed: boolean) {
+  "use server";
+  await dal.toggleTodo(id, completed);
+}
+
+async function deleteTodo(id: string) {
+  "use server";
+  await dal.deleteTodo(id);
+}
 
 export default async function Home() {
-  // const dal: DataAccessLayer = prismaDal; // or jsonServerDal
   const todos = await dal.getTodos();
   return (
     <>
@@ -31,7 +30,7 @@ export default async function Home() {
           New
         </Link>
       </header>
-      <ToDoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
+      <ToDoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </>
   );
 }

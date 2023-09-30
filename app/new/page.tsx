@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { prisma } from "../db";
 import { redirect } from "next/navigation";
-import { jsonServerDal } from "../jsonServerDal"; // or "../dataAccessLayer" to use Prisma
-const dal = jsonServerDal; // or prismaDal
+import { DataAccessLayer } from "../dataAccessLayer";
+import { prismaDal } from "../dataAccessLayer";
+const dal = prismaDal;
+// import { jsonServerDal } from "../jsonServerDal";
+// const dal = jsonServerDal;
 
 async function createTodo(data: FormData) {
   "use server";
