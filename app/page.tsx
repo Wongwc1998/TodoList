@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { prisma } from "./db";
 import ToDoList from "./components/ToDoList";
-
-async function getTodos() {
-  return await prisma.todo.findMany();
-}
+import { DataAccessLayer } from "./dataAccessLayer";
+// Import the DAL you want to use
+import { prismaDal } from "./dataAccessLayer";
+// OR
+// import { jsonServerDal } from "./jsonServerDal";
 
 async function toggleTodo(id: string, completed: boolean) {
   "use server"
@@ -25,11 +26,11 @@ async function deleteTodo(id: string) {
       id: id,
     },
   });
-  getTodos();
 }
 
 export default async function Home() {
-  const todos = await getTodos();
+  const dal: DataAccessLayer = prismaDal; // or jsonServerDal
+  const todos = await dal.getTodos();
   return (
     <>
       <header className="flex justify-between mb-4 items-center">
