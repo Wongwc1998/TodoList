@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DataAccessLayer, Todo } from "./dataAccessLayer";
+import { DataAccessLayer, Todo } from "./DalInterface";
 
 export const jsonServerDal: DataAccessLayer = {
   getTodos: async () => {

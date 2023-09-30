@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ToDoList from "./components/ToDoList";
-import { DataAccessLayer } from "./dataAccessLayer";
-// import { prismaDal } from "./dataAccessLayer";
+import { DataAccessLayer } from "./DalInterface";
+// import { prismaDal } from "./prismaDal";
 // const dal = prismaDal;
 import { jsonServerDal } from "./jsonServerDal";
 const dal = jsonServerDal;
