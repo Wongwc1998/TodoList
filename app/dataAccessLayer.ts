@@ -34,7 +34,7 @@ export const prismaDal: DataAccessLayer = {
       where: { id },
     });
   },
-  createTodo: async (title) => {
+  createTodo: async (title: string) => {
     await prisma.todo.create({
       data: { title, completed: false },
     });

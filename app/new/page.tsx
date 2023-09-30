@@ -1,19 +1,21 @@
 import Link from "next/link";
 import { prisma } from "../db";
-import { redirect } from "next/navigation"
+import { redirect } from "next/navigation";
+import { jsonServerDal } from "../jsonServerDal"; // or "../dataAccessLayer" to use Prisma
+const dal = jsonServerDal; // or prismaDal
 
 async function createTodo(data: FormData) {
   "use server";
 
   const titleValue = data.get("title")?.valueOf();
   if (typeof titleValue !== "string" || titleValue.length === 0) {
-    throw new Error("Invalid Title")
+    throw new Error("Invalid Title");
   }
 
-  await prisma.todo.create({data: {title: titleValue, completed: false}});
-  
+  await dal.createTodo(titleValue);
+
   console.log(titleValue);
-  redirect("/")
+  redirect("/");
 }
 
 export default function New() {

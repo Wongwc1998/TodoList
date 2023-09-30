@@ -14,7 +14,7 @@ export const jsonServerDal: DataAccessLayer = {
   deleteTodo: async (id) => {
     await axios.delete(`http://localhost:3001/api/todos/${id}`);
   },
-  createTodo: async (title) => {
+  createTodo: async (title: string) => {
     await axios.post("http://localhost:3001/api/todos", { title, completed: false });
   },
 };
